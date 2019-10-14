@@ -1,8 +1,4 @@
 
-"data" : [
-    {
-    "firstName": "Joel",
-    "lastName": "Anderson",
-    "age": 36
-}
+"data":[
+    {"firstName": "Joel", "lastName": "Anderson", "age": 36}
     ]
