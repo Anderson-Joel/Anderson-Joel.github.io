@@ -1,99 +1,174 @@
 <!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>Lesson 2</title>
-<meta name="description" content=" Assignemnt for CIT 261 Mobile App Development @ BYU-Idaho.">
-<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
-</head>
-<body>
-<header>
-<h1> CIT 261 | Joel Anderson | BYU-Idaho</h1>
-</header>
-<section class="page-header">
-<h1 class="project-name">Lesson 2 - Object Creation Functions, Inheritance, Properties, Methods, Instantiation</h1> 
-</section>
-<nav> <!-- Future navigational menu-->
-</nav>
-    
-Object Creation Function <br/>
-function Pet(name, species, color) {}<br/>
+    <head>
+        <meta charset="utf-8">
+        <title>Lesson 2</title>
+        <meta name="description" content=" Assignemnt for CIT 261 Mobile App Development @ BYU-Idaho.">
+        <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+    </head>
+    <body>
+        <header>
+            <h1> CIT 261 | Joel Anderson | BYU-Idaho</h1>
+        </header>
+        <section class="page-header">
+            <h1 class="project-name">Lesson 2 - Object Creation Functions, Inheritance, Properties, Methods, Instantiation</h1> 
+        </section>
+        <nav> <!-- Future navigational menu-->
+        </nav>
 
-//Properties are values associated with an object.<br/>
-//Example:<br/>
-objectName.property    pet.name<br/>
-//or<br/>
-objectName[property]   pet["name"]<br/>
-<br/>
-<br/>
-var pet = {<br/>
-    name: "Kitty",<br/>
-    species: "cat",<br/>
-    color: "black"<br/>
-};<br/>
-<br/>
-document.write(pet.name + "is a " + pet.color + " " + pet.species = ".");<br/>
-//or<br/>
-document.write(pet["name"] + "is a " + pet["color"] + " " + pet["species"] = ".");<br/>
+        Object Creation Function <br/>
+        function Pet(name, species, color) {}<br/>
 
-//Method are actions that can be performed on object.<br/>
-//Using the "this" keywork make it the owner of the object.<br/>
+        //Properties are values associated with an object.<br/>
+        //Example:<br/>
+        objectName.property    pet.name<br/>
+        //or<br/>
+        objectName[property]   pet["name"]<br/>
+        <br/>
+        <br/>
+        var pet = {<br/>
+        name: "Kitty",<br/>
+        species: "cat",<br/>
+        color: "black"<br/>
+        };<br/>
+        <br/>
+        document.write(pet.name + "is a " + pet.color + " " + pet.species = ".");<br/>
+        //or<br/>
+        document.write(pet["name"] + "is a " + pet["color"] + " " + pet["species"] = ".");<br/>
 
-var monitor = {<br/>
-brand: "Dell",<br/>
+        //Method are actions that can be performed on object.<br/>
+        //Using the "this" keywork make it the owner of the object.<br/>
+
+        var monitor = {<br/>
+        brand: "Dell",<br/>
         size: 19,<br/>
         type: "LCD",<br/>
         fullBrand: function () {<br/>
         return this.brand + "'s " + this.size + " inch " + this.type + " monitor.";<br/>
         }<br/>
-document.write(monitor.fullBrand());<br/>
+        document.write(monitor.fullBrand());<br/>
         };<br/>
-<br/>
-//When putting the method outside of the variable, do object.method.<br/>
-//monitor.fullBrand : function() {<br/>
-//        return this.brand + "'s " + this.size + " inch " + this.type + " monitor.";<br/>
-//    }<br/>
-<br/>
-// Inheritance is an object that inheirit properties and methods from its parent<br/>
-//by using the "prototype" property.<br/>
-//objectName.prototype.property<br/>
-<br/>
-function Person(first, last, age, eyecolor) {<br/>
-    this.first = first;<br/>
-    this.last = last;<br/>
-    this.age = age;<br/>
-}<br/>
-Person.prototype.nationality = "English";<br/>
-<br/>
-function Person(first, last, age, eyecolor) {<br/>
-    this.first = first;<br/>
-    this.last = last;<br/>
-    this.age = age;<br/>
-}<br/>
-Person.prototype.name = function () {<br/>
-    return this.first + " " + this.last;<br/>
-};<br/>
-<br/>
-//Instantiation is and instance of an object<br/>
-<br/>
-function Species(name, latinName, status){<br/>
-    this.name = name;<br/>
-    this.ln = latinName;<br/>
-    this.status = status;<br/>
-}<br/>
+        <br/>
+        //When putting the method outside of the variable, do object.method.<br/>
+        //monitor.fullBrand : function() {<br/>
+        //        return this.brand + "'s " + this.size + " inch " + this.type + " monitor.";<br/>
+        //    }<br/>
+        <br/>
+        // Inheritance is an object that inheirit properties and methods from its parent<br/>
+        //by using the "prototype" property.<br/>
+        //objectName.prototype.property<br/>
+        <br/>
+        function Person(first, last, age, eyecolor) {<br/>
+        this.first = first;<br/>
+        this.last = last;<br/>
+        this.age = age;<br/>
+        }<br/>
+        Person.prototype.nationality = "English";<br/>
+        <br/>
+        function Person(first, last, age, eyecolor) {<br/>
+        this.first = first;<br/>
+        this.last = last;<br/>
+        this.age = age;<br/>
+        }<br/>
+        Person.prototype.name = function () {<br/>
+        return this.first + " " + this.last;<br/>
+        };<br/>
+        <br/>
+        //Instantiation is and instance of an object<br/>
+        <br/>
+        function Species(name, latinName, status){<br/>
+        this.name = name;<br/>
+        this.ln = latinName;<br/>
+        this.status = status;<br/>
+        }<br/>
 
-var x = new species<br/>
+        var x = new species<br/>
         ("Bonobo",<br/>
-                "Pan paniscus",<br/>
-                "endangered");<br/>
-document.write(x.name);<br/>
-document.write("<br" / > );<br/>
-document.write(x.ln);<br/>
-document.write("<br" / > );<br/>
-document.write(x.status);<br/>
-</main>
-<footer class="site-footer">
-<p>&copy Joel Anderson | CIT261 | © 2018 GitHub, Inc.</p>
-</footer>
-</body>
+        "Pan paniscus",<br/>
+        "endangered");<br/>
+        document.write(x.name);<br/>
+        document.write("<br" / > );<br/>
+        document.write(x.ln);<br/>
+        document.write("<br" / > );<br/>
+        document.write(x.status);<br/>
+        <!-- Sandbox -->
+        <div class="mainContent">
+            <h3>Example</h3>
+            <p>
+                <input type="text" id="name" placeholder="Enter Species Name"><br />
+                <input type="text" id="latinName" placeholder="Enter Latin Name"><br />
+                <input type="text" id="status" placeholder="Enter Status"><br />
+            </p>
+            <input type="submit" onclick="addSpecies();" value="Add Species">
+            <input type="submit" onclick="resetList();" value="Reset List">
+            <br />
+
+        </div>
+        <p>Result:</p>
+        <p id="content"></p>
+
+
+        <script>
+            function Species(name, latinName, status) {
+                this.name = name;
+                this.latinName = latinName;
+                this.status = status;
+            }
+
+            var Bonobo = new Species("Bonobo", "Pan paniscus", "endangered");
+            var Elephant = new Species("Elephant", "Loxodonta", "endangered");
+
+            var currentSpecies = [Bonobo, Elephant];
+
+            function addSpecies() {
+                var name = document.getElementById("name").value;
+                var latinName = document.getElementById("latinName").value;
+                var status = document.getElementById("status").value;
+
+                var newSpecies = new Species(name, latinName, status);
+                currentSpecies.push(newSpecies);
+
+                document.getElementById("name").value = "";
+                document.getElementById("latinName").value = "";
+                document.getElementById("status").value = "";
+
+                loadList();
+            }
+
+            function resetList() {
+                currentSpecies = [Bonobo, Elephant];
+                loadList();
+            }
+
+            function loadList() {
+
+                var content = "";
+
+                content += getSpeciesInformation(currentSpecies);
+
+                publishContent(content);
+            }
+
+            function getSpeciesInformation(currentSpecies) {
+                var content = "";
+
+                for (var i = 0; i < currentSpecies.length; i++) {
+                    content += currentSpecies[i].name + " | " + currentSpecies[i].latinName + " | " + currentSpecies[i].status + "<br />";
+                }
+
+                return content;
+            }
+
+            function publishContent(content) {
+                document.getElementById("content").innerHTML = content;
+            }
+
+        </script>
+
+
+        <footer class="site-footer">
+            <p>&copy Joel Anderson | CIT261 | © 2018 GitHub, Inc.</p>
+        </footer>
+
+    </body>
 </html>
