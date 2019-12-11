@@ -19,10 +19,10 @@
             <br>
             <div id="table"></div>
             <br>
-            <p>In this exercise I will contact a third party site to get a json file information and then display it on the screen .</p>
-            <input type="button" value="Third Party" onclick="requestJSONThirdPartyPretty()" />
+            <p>In this exercise I will contact a third party site to get a json file information and then display it on the screen. The names are characters from different Studio Ghibli Films.</p>
+            <input type="button" value="Third Party" onclick="thirdParty()" />
             <br>
-            <div id="thirdPartyContent"></div>
+            <div id="table2"></div>
             <br>
         </div>
         <script>
@@ -65,19 +65,19 @@
 //                xhttp.send();
 //            }
 
-            var url = "https://ghibliapi.herokuapp.com/films";
 
-            function requestJSONThirdPartyPretty() {
-                console.log("Requesting JSON from Third-Party...");
 
+            function thirdParty() {
+                
+                var url = "https://ghibliapi.herokuapp.com/people";
                 var xhttp = new XMLHttpRequest();
 
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
                         var arr = JSON.parse(this.responseText);
-                        displayPrettyJSONThirdParty(arr);
+                        thirdPartyPretty(arr);
                     } else {
-                        document.getElementById("thirdPartyContent").innerHTML = "Error retrieving file.";
+                        document.getElementById("table2").innerHTML = "Error retrieving file.";
                     }
                 };
 
@@ -85,23 +85,20 @@
                 xhttp.send();
             }
 
-            function displayPrettyJSONThirdParty(arr) {
+            function thirdPartyPretty(arr) {
                 var output = "";
 
                 for (var i = 0; i < arr.length; i++) {
-                    output += "<h3>" + arr[i].title + " [" + arr[i].release_date + "]" + "</h3>";
-                    output += arr[i].description + "<br />";
-                    output += "<br />"
-                    output += "<b>Director:</b> " + arr[i].director + "<br />";
-                    output += "<b>Producer:</b> " + arr[i].producer + "<br />";
-                    output += "<b>Rating:</b> " + arr[i].rt_score + "<br />";
+                    output += "<b>Name:</b> " + arr[i].name + "<br />";
+                    output += "<b>Gender:</b> " + arr[i].gender + "<br />";
+                    output += "<b>Age:</b> " + arr[i].age + "<br />";
+                    output += "<b>Eye Color:</b> " + arr[i].eye_color + "<br />";
+                    output += "<b>Hair Color:</b> " + arr[i].hair_color + "<br />";
                     output += "<hr />";
                 }
 
-                document.getElementById("thirdPartyContent").innerHTML = output;
+                document.getElementById("table2").innerHTML = output;
             }
-
-
 
         </script>
         <!-- End of sandbox -->
