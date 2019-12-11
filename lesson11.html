@@ -5,118 +5,91 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style> 
-            .translate {
-                width: 300px;
+            .transition {
+                width: 100px;
                 height: 100px;
-                background-color: blue;
-                border: 1px solid black;
-                -ms-transform: translate(50px,20px); /* IE 9 */
-                -webkit-transform: translate(50px,20px); /* Safari */
-                transform: translate(50px,20px); /* Standard syntax */
+                background: red;
+                -webkit-transition: width 1s; /* For Safari 3.1 to 6.0 */
+                transition: width 3s;
             }
 
-            #myDiv {
-                width: 300px;
+            .transition:hover {
+                width: 400px;
+            }
+
+            .expand {
+                width: 100px;
                 height: 100px;
-                background-color: white;
-                border: 1px solid black;
-                -ms-transform: rotate(20deg); /* IE 9 */
-                -webkit-transform: rotate(20deg); /* Safari */
-                transform: rotate(20deg); /* Standard syntax */
+                background: blueviolet;
+                -webkit-transition: width 1s, height 3s; /* For Safari 3.1 to 6.0 */
+                transition: width 1s, height 3s;
             }
 
-            .rev {
+            .expand:hover {
                 width: 300px;
-                height: 35px;
-                background-color: red;
-                border: 1px solid black;
-                -ms-transform: rotate(-20deg); /* IE 9 */
-                -webkit-transform: rotate(-20deg); /* Safari */
-                transform: rotate(-20deg); /* Standard syntax */
+                height: 300px;
             }
 
-            .scale {
-                margin: 150px;
-                width: 200px;
-                height: 100px;
-                background-color: yellow;
-                border: 1px solid black;
-                -ms-transform: scale(2,0.5); /* IE 9 */
-                -webkit-transform: scale(2,0.5); /* Safari */
-                transform: scale(2,0.5); /* Standard syntax */
-            }
-
-            .normal {
-                width: 300px;
-                height: 40px;
-                background-color: green;
-                border: 1px solid black;
-            }
-
-            .skewX {
-                width: 300px;
-                height: 40px;
-                background-color: green;
-                border: 1px solid black;
-                -ms-transform: skewX(10deg); /* IE 9 */
-                -webkit-transform: skewX(10deg); /* Safari */
-                transform: skewX(10deg); /* Standard syntax */
-            }
-
-            .skewY {
-
-                width: 300px;
-                height: 40px;
-                background-color: green;
-                -ms-transform: skewY(20deg); /* IE 9 */
-                -webkit-transform: skewY(20deg); /* Safari */
-                transform: skewY(20deg); /* Standard syntax */
-            }
-
-            .skew {
-                width: 300px;
-                height: 40px;
-                background-color: yellowgreen;
-                -ms-transform: skew(20deg,-10deg); /* IE 9 */
-                -webkit-transform: skew(20deg,-10deg); /* Safari */
-                transform: skew(20deg,-10deg); /* Standard syntax */
-            }
-
-            .matrix {
-                width: 300px;
-                height: 40px;
-                background-color: yellow;
-                border: 1px solid black;
-                -ms-transform: matrix(1, -0.3, 0, 1, 0, 0); /* IE 9 */
-                -webkit-transform: matrix(1, -0.3, 0, 1, 0, 0); /* Safari */
-                transform: matrix(1, -0.3, 0, 1, 0, 0); /* Standard syntax */
-            }
-
-            .rotateX {
-                width: 300px;
-                height: 40px;
-                background-color: purple;
-                border: 1px solid black;
-                -webkit-transform: rotateX(120deg); /* Safari */
-                transform: rotateX(120deg); /* Standard syntax */
-            }
-
-            .rotateY {
-                width: 300px;
-                height: 40;
-                background-color: yellow;
-                border: 1px solid black;
-                -webkit-transform: rotateY(125deg); /* Safari */
-                transform: rotateY(125deg); /* Standard syntax */
-            }
-
-            .rotateZ {
-                width: 300px;
-                height: 40px;
+            /* For Safari 3.1 to 6.0 */
+            #div1 {
                 background-color: orange;
-                border: 1px solid black;
-                -webkit-transform: rotateZ(75deg); /* Safari */
-                transform: rotateZ(75deg); /* Standard syntax */
+                -webkit-transition-timing-function: linear;}
+            #div2 {
+                background-color: greenyellow;
+                -webkit-transition-timing-function: ease;}
+            #div3 {
+                background-color: green;
+                -webkit-transition-timing-function: ease-in;}
+            #div4 {
+                background-color: yellow;
+                -webkit-transition-timing-function: ease-out;}
+            #div5 {
+                background-color: yellowgreen;
+                -webkit-transition-timing-function: ease-in-out;}
+
+            /* Standard syntax */
+            #div1 {
+                background-color: orange;
+                transition-timing-function: linear;}
+            #div2 {
+                background-color: greenyellow;
+                transition-timing-function: ease;}
+            #div3 {
+                background-color: green;
+                transition-timing-function: ease-in;}
+            #div4 {
+                background-color: yellow;
+                transition-timing-function: ease-out;}
+            #div5 {
+                background-color: yellowgreen;
+                transition-timing-function: ease-in-out;}
+
+            #delay {
+                width: 100px;
+                height: 100px;
+                background: purple;
+                -webkit-transition: width 3s; /* Safari */
+                -webkit-transition-delay: 1s; /* Safari */
+                transition: width 3s;
+                transition-delay: 1s;
+            }
+            #delay:hover {
+                width: 300px;
+            }
+
+            #transform {
+                width: 100px;
+                height: 100px;
+                background: blue;
+                -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari */
+                transition: width 2s, height 2s, transform 2s;
+            }
+
+            #transform:hover {
+                width: 200px;
+                height: 300px;
+                -webkit-transform: rotate(180deg); /* Safari */
+                transform: rotate(180deg);
             }
 
         </style>
@@ -128,144 +101,51 @@
             <a href="index.html">Home</a>
         </nav>
         <div>
-            <h1>The translate() Method</h1>
-            <p>The translate() method moves an element from its current position:</p>
+            <h1>The transition Property</h1>
 
-            <div class="translate">
-                This div element is moved 50 pixels to the right, and 20 pixels down from its current position.
-            </div>
-        </div>
-        <br>
-        <br>
-        <div>
-            <h1>The rotate() Method</h1>
-            <p>The rotate() method rotates an element clockwise or counter-clockwise.</p>
+            <p>Hover over the div element below, to see the transition effect:</p>
+            <div class="transition" id="t1"></div>
 
-            <div>
-                This a normal div element.
-            </div>
-
-            <div id="myDiv">
-                This div element is rotated clockwise 20 degrees.
-            </div>
-            <div class="rev">
-                This div element is rotated counterclockwise 20 degrees.
-            </div>
-        </div>
-        <br>
-        <br>
-        <div>
-            <h1>The scale() Method</h1>
-            <p>The scale() method increases or decreases the size of an element.</p>
-
-            <div class="scale">
-                This div element is two times of its original width, and half of its original height.
-            </div>
+            <p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p> 
         </div>
         <div>
-            <h1>The skewX() Method</h1>
-            <p>The skewX() method skews an element along the X-axis by the given angle. Make it negative, it will skew the X-axis the other direction.</p>
+            <h1>The transition Property</h1>
 
-            <div class="normal">
-                This a normal div element.
-            </div>
+            <p>Hover over the div element below, to see the transition effect:</p>
+            <div class="expand"></div>
 
-            <div class="skewX">
-                This div element is skewed 10 degrees along the X-axis.
-            </div>
+            <p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
         </div>
-        <br>
-        <br>
         <div>
-            <h1>The skewY() Method</h1>
-            <p>The skewY() method skews an element along the Y-axis by the given angle. Make it negative, it will skew the Y-axis the other direction.</p>
+            <h1>The transition-timing-function Property</h1>
 
-            <div class="normal">
-                This a normal div element.
-            </div>
+            <p>Hover over the div elements below, to see the different speed curves:</p>
 
-            <div class="skewY">
-                This div element is skewed 20 degrees along the Y-axis.
-            </div>
+            <div class="transition" id="div1">linear</div><br>
+            <div class="transition" id="div2">ease</div><br>
+            <div class="transition" id="div3">ease-in</div><br>
+            <div class="transition" id="div4">ease-out</div><br>
+            <div class="transition" id="div5">ease-in-out</div><br>
         </div>
-        <br>
-        <br>
         <div>
-            <h1>The skew() Method</h1>
-            <p>The skew() method skews an element into a given angle. Make it negative, it will skew the axis the other directions.</p>
+            <h1>The transition-delay Property</h1>
 
-            <div>
-                This a normal div element.
-            </div>
+            <p>Hover over the div element below, to see the transition effect:</p>
 
-            <div class="skew">
-                This div element is skewed 20 degrees along the X-axis, and -10 degrees along the Y-axis.
-            </div>
+            <div class="transition" id="delay"></div>
+
+            <p><b>Note:</b> The transition effect has a 1 second delay before starting.</p>
+
+            <p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
         </div>
-        <br>
-        <br>
         <div>
-            <h1>The matrix() Method</h1>
-            <p>The matrix() method combines all the 2D transform methods into one. The parameters are as follow: matrix(scaleX(),skewY(),skewX(),scaleY(),translateX(),translateY()).</p>
+            <h1>Transition + Transform</h1>
 
-            <div>
-                This a normal div element.
-            </div>
+            <p>Hover over the div element below:</p>
 
-            <div class="matrix">
-                Using the matrix() method.
-            </div>
+            <div class="transition" id="transform"></div>
+
+            <p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
         </div>
-        <br>
-        <br>
-        <div>
-            <h1>The rotateX() Method</h1>
-            <p>The rotateX() method rotates an element around its X-axis at a given degree.</p>
-
-            <div>
-                This a normal div element.
-            </div>
-
-            <div class="rotateX">
-                This div element is rotated 120 degrees.
-            </div>
-
-            <p><b>Note:</b> Internet Explorer 9 (and earlier versions) does not support the rotateX() method.</p>
-        </div>
-        <br>
-        <br>
-        <div>
-            <h1>The rotateY() Method</h1>
-            <p>The rotateY() method rotates an element around its Y-axis at a given degree.</p>
-
-            <div>
-                This a normal div element.
-            </div>
-
-            <div class="rotateY">
-                This div element is rotated 125 degrees.
-            </div>
-
-            <p><b>Note:</b> Internet Explorer 9 (and earlier versions) does not support the rotateY() method.</p>
-        </div>
-        <br>
-        <br>
-        <div>
-            <h1>The rotateZ() Method</h1>
-            <p>The rotateZ() method rotates an element around its Z-axis at a given degree.</p>
-
-            <div>
-                This a normal div element.
-            </div>
-
-            <div class="rotateZ">
-                This div element is rotated 75 degrees.
-            </div>
-
-            <p><b>Note:</b> Internet Explorer 9 (and earlier versions) does not support the rotateZ() method.</p>
-        </div>
-
-
-
     </body>
 </html>

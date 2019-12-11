@@ -79,6 +79,86 @@
                 75%  {background-color:green; left:0px; top:200px;}
                 100% {background-color:red; left:0px; top:0px;}
             }
+
+            .animation2 {
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                position: relative;
+                -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+                -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+                -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+                animation-name: example;
+                animation-duration: 4s;
+                animation-iteration-count: infinite;
+            }
+
+            .div6 {
+                height: 375px;
+                background: whitesmoke;
+            }
+            
+            .animation3 {-webkit-animation-timing-function: ease-in-out;}
+            .animation3 {animation-timing-function: ease-in-out;}
+
+            /* Shorthand syntax */
+            .animation3 {
+                width: 150px;
+                height: 100px;
+                font-size: 75px;
+                font-variant-caps: all-small-caps;
+                text-align: center;
+                border: black solid 1px;
+                animation: sale 1s infinite;
+                border-radius: 50%;
+            }
+            
+            .animation4 {
+                width: 50px;
+                height: 33px;
+                font-size: 22px;
+                font-variant-caps: all-small-caps;
+                text-align: center;
+                border: black solid 1px;
+                animation: sale 1s infinite;
+                border-radius: 50%;
+            }
+            
+            
+            /* Safari 4.0 - 8.0 */
+            @-webkit-keyframes sale {
+                0%   {
+                    background-color:red; left:0px; top:0px;
+                color: yellow;
+                }
+                50%  {
+                background-color:yellow; left:0px; top:0px;
+                color:red;
+                }
+                100% {
+                background-color:red; left:0px; top:0px;
+                color:yellow;
+                }
+            }
+
+            /* Standard syntax */
+            @keyframes sale {
+                0%   {
+                    background-color:red; left:0px; top:0px;
+                color: yellow;
+                }
+                50%  {
+                background-color:yellow; left:0px; top:0px;
+                color:red;
+                }
+                100% {
+                background-color:red; left:0px; top:0px;
+                color:yellow;
+                }
+            }
+            
+            
+            
         </style>
     </head>
     <body>
@@ -96,10 +176,25 @@
             <div class="div" id="div4">ease-out</div>
             <div class="div" id="div5">ease-in-out</div>
         </div>
-        <div>
-            <h2>Another example</h2>
+        <div class="div6">
+            <h2>Second example</h2>
 
             <div class="animation"><strong>:)</strong></div>
+        </div>
+
+        <div class="div6">
+            <h2>Third Example</h2>
+
+            <div class="animation2"><strong>WOW</strong></div>
+        </div>
+        
+        <div class="div6">
+            <h2>Fourth Example</h2>
+
+            <div class="animation3"><strong id="sale">Sale</strong></div>
+            <br>
+            <br>
+            <div class="animation4"><strong id="sale">Sale</strong></div>
         </div>
     </body>
 </html>
