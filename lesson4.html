@@ -10,7 +10,7 @@
             <a href="index.html">Home</a>
         </nav>
         <!-- Sandbox -->
-        
+
         <h1>Lesson 4 - Using XMLHTTPRequest to Consume a JSON Web Service</h1>
         <h3>A common use of JSON is to read data from a web server, and display the data in a web page.</h3>
         <div>                         
@@ -19,57 +19,90 @@
             <br>
             <div id="table"></div>
             <br>
-<!--            <p>In this exercise I will contact a third party site to get a json file information and then display it on the screen .</p>
-            <input type="button" value="Third Party" onclick="readFile2()" />
+            <p>In this exercise I will contact a third party site to get a json file information and then display it on the screen .</p>
+            <input type="button" value="Third Party" onclick="requestJSONThirdPartyPretty()" />
             <br>
-            <div id="table2"></div>
-            <br>-->
+            <div id="thirdPartyContent"></div>
+            <br>
         </div>
         <script>
-            
+
             var file = "media/test.json";
-            
+
             function readFile() {
                 var xhttp = new XMLHttpRequest();
-                //var input = document.getElementById("file").value;
-                //var url = new URL("https://Anderson-Joel.github.io/media/" + input);
-                xhttp.onreadystatechange = function() {
+                xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
                         var value = JSON.parse(this.responseText);
                         var list = "<table><tr><th>First Name</th><th>Last Name</th><th>Age</th></tr>\n";
                         for (var i = 0; i < value.data.length; i++) {
-                            list += "<tr><td>" + value.data[i].firstName + "</td><td>" + value.data[i].lastName + "</td><td>" 
+                            list += "<tr><td>" + value.data[i].firstName + "</td><td>" + value.data[i].lastName + "</td><td>"
                                     + value.data[i].age + "</td</tr>\n";
                         }
-                        document.getElementById("table").innerHTML = list;                
+                        document.getElementById("table").innerHTML = list;
                     }
                 }
                 xhttp.open("GET", file, true);
                 xhttp.send();
             }
-            
-            function readFile2() {
+
+//            function readFile2() {
+//                var xhttp = new XMLHttpRequest();
+//                var input = document.getElementById("file").value;
+//                var url = new URL("https://Anderson-Joel.github.io/media/");
+//                xhttp.onreadystatechange = function () {
+//                    if (this.readyState == 4 && this.status == 200) {
+//                        var value = JSON.parse(this.responseText);
+//                        var list = "<table><tr><th>First Name</th><th>Last Name</th><th>Age</th></tr>\n";
+//                        for (var i = 0; i < value.data.length; i++) {
+//                            list += "<tr><td>" + value.data[i].firstName + "</td><td>" + value.data[i].lastName + "</td><td>"
+//                                    + value.data[i].age + "</td</tr>\n";
+//                        }
+//                        document.getElementById("table").innerHTML = list;
+//                    }
+//                }
+//                xhttp.open("GET", file, true);
+//                xhttp.send();
+//            }
+
+            var url = "https://ghibliapi.herokuapp.com/films";
+
+            function requestJSONThirdPartyPretty() {
+                console.log("Requesting JSON from Third-Party...");
+
                 var xhttp = new XMLHttpRequest();
-                var input = document.getElementById("file").value;
-                var url = new URL("https://Anderson-Joel.github.io/media/");
-                xhttp.onreadystatechange = function() {
+
+                xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
-                        var value = JSON.parse(this.responseText);
-                        var list = "<table><tr><th>First Name</th><th>Last Name</th><th>Age</th></tr>\n";
-                        for (var i = 0; i < value.data.length; i++) {
-                            list += "<tr><td>" + value.data[i].firstName + "</td><td>" + value.data[i].lastName + "</td><td>" 
-                                    + value.data[i].age + "</td</tr>\n";
-                        }
-                        document.getElementById("table").innerHTML = list;                
+                        var arr = JSON.parse(this.responseText);
+                        displayPrettyJSONThirdParty(arr);
+                    } else {
+                        document.getElementById("thirdPartyContent").innerHTML = "Error retrieving file.";
                     }
-                }
-                xhttp.open("GET", file, true);
+                };
+
+                xhttp.open("GET", url, true);
                 xhttp.send();
             }
-            
-            
-            
-            
+
+            function displayPrettyJSONThirdParty(arr) {
+                var output = "";
+
+                for (var i = 0; i < arr.length; i++) {
+                    output += "<h3>" + arr[i].title + " [" + arr[i].release_date + "]" + "</h3>";
+                    output += arr[i].description + "<br />";
+                    output += "<br />"
+                    output += "<b>Director:</b> " + arr[i].director + "<br />";
+                    output += "<b>Producer:</b> " + arr[i].producer + "<br />";
+                    output += "<b>Rating:</b> " + arr[i].rt_score + "<br />";
+                    output += "<hr />";
+                }
+
+                document.getElementById("thirdPartyContent").innerHTML = output;
+            }
+
+
+
         </script>
         <!-- End of sandbox -->
     </body>
