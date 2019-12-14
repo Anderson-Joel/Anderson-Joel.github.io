@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 4</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+        <!-- Sandbox -->
+
+        <h1>Lesson 4 - Using XMLHTTPRequest to Consume a JSON Web Service</h1>
+        <h3>A common use of JSON is to read data from a web server, and display the data in a web page.</h3>
+        <div>                         
+            <p>In this exercise I will use a json file to get the information and then display it on the screen from local source.</p>
+            <input type="button" value="  Local File  " onclick="readFile()" />
+            <br>
+            <div id="table"></div>
+            <br>
+            <p>In this exercise I will contact a third party site to get a json file information and then display it on the screen. The names are characters from different Studio Ghibli Films.</p>
+            <input type="button" value="Third Party" onclick="thirdParty()" />
+            <br>
+            <div id="table2"></div>
+            <br>
+        </div>
+        <script>
+
+            var file = "media/test.json";
+
+            function readFile() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var value = JSON.parse(this.responseText);
+                        var list = "<table><tr><th>First Name</th><th>Last Name</th><th>Age</th></tr>\n";
+                        for (var i = 0; i < value.data.length; i++) {
+                            list += "<tr><td>" + value.data[i].firstName + "</td><td>" + value.data[i].lastName + "</td><td>"
+                                    + value.data[i].age + "</td</tr>\n";
+                        }
+                        document.getElementById("table").innerHTML = list;
+                    }
+                }
+                xhttp.open("GET", file, true);
+                xhttp.send();
+            }
+
+//            function readFile2() {
+//                var xhttp = new XMLHttpRequest();
+//                var input = document.getElementById("file").value;
+//                var url = new URL("https://Anderson-Joel.github.io/media/");
+//                xhttp.onreadystatechange = function () {
+//                    if (this.readyState == 4 && this.status == 200) {
+//                        var value = JSON.parse(this.responseText);
+//                        var list = "<table><tr><th>First Name</th><th>Last Name</th><th>Age</th></tr>\n";
+//                        for (var i = 0; i < value.data.length; i++) {
+//                            list += "<tr><td>" + value.data[i].firstName + "</td><td>" + value.data[i].lastName + "</td><td>"
+//                                    + value.data[i].age + "</td</tr>\n";
+//                        }
+//                        document.getElementById("table").innerHTML = list;
+//                    }
+//                }
+//                xhttp.open("GET", file, true);
+//                xhttp.send();
+//            }
+
+
+
+            function thirdParty() {
+                
+                var url = "https://ghibliapi.herokuapp.com/people";
+                var xhttp = new XMLHttpRequest();
+
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var arr = JSON.parse(this.responseText);
+                        thirdPartyPretty(arr);
+                    } else {
+                        document.getElementById("table2").innerHTML = "Error retrieving file.";
+                    }
+                };
+
+                xhttp.open("GET", url, true);
+                xhttp.send();
+            }
+
+            function thirdPartyPretty(arr) {
+                var output = "";
+
+                for (var i = 0; i < arr.length; i++) {
+                    output += "<b>Name:</b> " + arr[i].name + "<br />";
+                    output += "<b>Gender:</b> " + arr[i].gender + "<br />";
+                    output += "<b>Age:</b> " + arr[i].age + "<br />";
+                    output += "<b>Eye Color:</b> " + arr[i].eye_color + "<br />";
+                    output += "<b>Hair Color:</b> " + arr[i].hair_color + "<br />";
+                    output += "<hr />";
+                }
+
+                document.getElementById("table2").innerHTML = output;
+            }
+
+        </script>
+        <!-- End of sandbox -->
+    </body>
+</html>

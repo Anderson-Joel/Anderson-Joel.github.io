@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 3</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>   
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>     
+        <!-- Sandbox -->
+        <h1>Lesson 3 - JSON PARSE AND STRINGIFY</h1>
+        <h2>Example JSON PARSE</h2>
+        <h3>JSON is a format for storing and transporting data. JSON is often used when data is sent from a server to a web page.</h3>
+        <div>
+            <p>This example creates a JSON file with the names of my servers and the OS they are running. These names are shown in a table. We will choose a location number and show all information of the server.</p>
+            <p id="content1"></p>
+            <p>Select a number : <input name="insertnumber" type="text" id="number" ></p>
+            <input type="button" onclick="createJson()" value="Click for Result" >
+            <h4>Result</h4>
+            <p id="content"></p>
+        </div>
+        <div>
+            <h2>Example STRINGIFY</h2>
+            <h3>Converts a JavaScript value to a JavaScript Object Notation (JSON) string.</h3>
+            <input type="button" onclick="createStringify()" value="Click for Result" >
+            <p id="result"></p>
+        </div>
+        <script>
+            var objects = {"Server": [
+                    {"name": "Etheria", "os": "Windows Server 2016", "ip": "unknown"},
+                    {"name": "Novice", "os": "Windows Server 2012 R2", "ip": "unknown"},
+                    {"name": "Minecraft", "os": "Linux Ubuntu", "ip": "unknown"},
+                    {"name": "File", "os": "OpenMediaVault", "ip": "unknown"},
+                    {"name": "Security", "os": "Windows 10 Pro", "ip": "unknown"},
+                ]};
+            var i, dis;
+            for (i = 0, dis = ""; i < objects.Server.length; i++) {
+                dis += i + " - " + objects.Server[i].name + "</br>";
+            }
+            document.getElementById('content1').innerHTML = dis;
+
+            function createJson() {
+                var select = document.getElementById("number").value;
+                var j = 0;
+                if (select => 0 && select <= 6) {
+                    for (j = 0; j < objects.Server.length; j++) {
+                        if (j == select) {
+                            document.getElementById('content').innerHTML = "I'm " + objects.Server[j].name + ". I run " + objects.Server[j].os + ". My IP address is " + objects.Server[j].ip + ".";
+                            /**/
+                            ;
+                        }
+                    }
+                }
+                if (select > 6) {
+                    var persona = {"avisar": function () {
+                            alert("Insert a number between 0 - 6");
+                        }
+                    };
+
+                    persona.avisar();
+                }
+            }
+            function createStringify() {
+                var continents = new Array();
+                continents[0] = "Africa";
+                continents[1] = "Asia";
+                continents[2] = "North America";
+                continents[3] = "South America";
+                continents[4] = "Europe";
+                continents[5] = "Australia";
+                continents[6] = "Antarctica";
+                var jsonText = JSON.stringify(continents, replaceToUpper);
+
+                document.getElementById("result").innerHTML = jsonText + "</br> " + JSON.stringify(new Date());
+            }
+            function replaceToUpper(key, value) {
+                return value.toString().toUpperCase();
+            }
+        </script>
+        <!-- End of sandbox -->
+    </body>
+</html>

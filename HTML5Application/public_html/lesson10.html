@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 10</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <h1>Lesson 10 - Video, Audio and Canvas</h1>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+        <div>
+            <h2>Video</h2>
+            <div> 
+                <button onclick="playPause()">Play/Pause</button> 
+                <button onclick="makeBig()">Big</button>
+                <button onclick="makeSmall()">Small</button>
+                <button onclick="makeNormal()">Normal</button>
+                <br><br> 
+                
+                <video id="video1" width="320" height="240" controls>
+                    <source src="media/zoom_0.mp4" type="video/mp4">
+                    Your browser does not support the <code>video</code> tag.
+                </video>
+            </div>
+        </div>
+        <div>
+            <h2>Audio</h2>
+            <audio controls>
+                <source src="media/audio_only.m4a" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div>
+            <h2>Canvas</h2>
+            <p>Image to use:</p>
+            <img src="media/server1.png" id="server" alt="server" width="220">
+
+            <p>Canvas to fill:</p>
+            <canvas id="myCanvas" width="250" height="400"
+                    style="border:1px solid #d3d3d3;">
+                Your browser does not support the HTML5 canvas tag.</canvas>
+
+            <p><button onclick="canvas()">Try it</button></p>
+
+        </div>
+
+
+        <script>
+            var myVideo = document.getElementById("video1");
+
+            function playPause() {
+                if (myVideo.paused)
+                    myVideo.play();
+                else
+                    myVideo.pause();
+            }
+
+            function makeBig() {
+                myVideo.width = 560;
+            }
+
+            function makeSmall() {
+                myVideo.width = 320;
+            }
+
+            function makeNormal() {
+                myVideo.width = 420;
+            }
+
+            function canvas() {
+                var c = document.getElementById("myCanvas");
+                var ctx = c.getContext("2d");
+                var img = document.getElementById("server");
+                ctx.drawImage(img, 10, 10);
+            }
+        </script> 
+    </body>
+</html>

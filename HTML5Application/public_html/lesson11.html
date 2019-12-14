@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 11</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style> 
+            .transition {
+                width: 100px;
+                height: 100px;
+                background: red;
+                -webkit-transition: width 1s; /* For Safari 3.1 to 6.0 */
+                transition: width 3s;
+            }
+
+            .transition:hover {
+                width: 400px;
+            }
+
+            .expand {
+                width: 100px;
+                height: 100px;
+                background: blueviolet;
+                -webkit-transition: width 1s, height 3s; /* For Safari 3.1 to 6.0 */
+                transition: width 1s, height 3s;
+            }
+
+            .expand:hover {
+                width: 300px;
+                height: 300px;
+            }
+
+            /* For Safari 3.1 to 6.0 */
+            #div1 {
+                background-color: orange;
+                -webkit-transition-timing-function: linear;}
+            #div2 {
+                background-color: greenyellow;
+                -webkit-transition-timing-function: ease;}
+            #div3 {
+                background-color: green;
+                -webkit-transition-timing-function: ease-in;}
+            #div4 {
+                background-color: yellow;
+                -webkit-transition-timing-function: ease-out;}
+            #div5 {
+                background-color: yellowgreen;
+                -webkit-transition-timing-function: ease-in-out;}
+
+            /* Standard syntax */
+            #div1 {
+                background-color: orange;
+                transition-timing-function: linear;}
+            #div2 {
+                background-color: greenyellow;
+                transition-timing-function: ease;}
+            #div3 {
+                background-color: green;
+                transition-timing-function: ease-in;}
+            #div4 {
+                background-color: yellow;
+                transition-timing-function: ease-out;}
+            #div5 {
+                background-color: yellowgreen;
+                transition-timing-function: ease-in-out;}
+
+            #delay {
+                width: 100px;
+                height: 100px;
+                background: purple;
+                -webkit-transition: width 3s; /* Safari */
+                -webkit-transition-delay: 1s; /* Safari */
+                transition: width 3s;
+                transition-delay: 1s;
+            }
+            #delay:hover {
+                width: 300px;
+            }
+
+            #transform {
+                width: 100px;
+                height: 100px;
+                background: blue;
+                -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari */
+                transition: width 2s, height 2s, transform 2s;
+            }
+
+            #transform:hover {
+                width: 200px;
+                height: 300px;
+                -webkit-transform: rotate(180deg); /* Safari */
+                transform: rotate(180deg);
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <h1>Lesson 11 - Designing, Defining, and Triggering CSS3 Transitions without Custom Libraries (Thought Library)</h1>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+        <div>
+            <h1>The transition Property</h1>
+
+            <p>Hover over the div element below, to see the transition effect:</p>
+            <div class="transition" id="t1"></div>
+
+            <p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p> 
+        </div>
+        <div>
+            <h1>The transition Property</h1>
+
+            <p>Hover over the div element below, to see the transition effect:</p>
+            <div class="expand"></div>
+
+            <p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
+        </div>
+        <div>
+            <h1>The transition-timing-function Property</h1>
+
+            <p>Hover over the div elements below, to see the different speed curves:</p>
+
+            <div class="transition" id="div1">linear</div><br>
+            <div class="transition" id="div2">ease</div><br>
+            <div class="transition" id="div3">ease-in</div><br>
+            <div class="transition" id="div4">ease-out</div><br>
+            <div class="transition" id="div5">ease-in-out</div><br>
+        </div>
+        <div>
+            <h1>The transition-delay Property</h1>
+
+            <p>Hover over the div element below, to see the transition effect:</p>
+
+            <div class="transition" id="delay"></div>
+
+            <p><b>Note:</b> The transition effect has a 1 second delay before starting.</p>
+
+            <p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
+        </div>
+        <div>
+            <h1>Transition + Transform</h1>
+
+            <p>Hover over the div element below:</p>
+
+            <div class="transition" id="transform"></div>
+
+            <p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
+        </div>
+    </body>
+</html>
