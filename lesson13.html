@@ -101,7 +101,6 @@
             .animation3 {-webkit-animation-timing-function: ease-in-out;}
             .animation3 {animation-timing-function: ease-in-out;}
 
-            /* Shorthand syntax */
             .animation3 {
                 width: 150px;
                 height: 100px;
@@ -157,6 +156,19 @@
                 }
             }
             
+            .server {
+                width: 100px;
+            }
+            .server:hover {
+                animation-timing-function: ease-in-out;
+                animation: changesize .5s;
+                animation-fill-mode: both;
+            }
+            
+            @keyframes changesize {
+                0%{ width: 100px;}
+                100% { width: 400px;}
+            }
             
             
         </style>
@@ -195,6 +207,15 @@
             <br>
             <br>
             <div class="animation4"><strong id="sale">Sale</strong></div>
+        </div>
+        <div class="div6">
+            <h2>Fifth Example</h2>
+            <p>Enlarging a small image to have a better look at it.</p>
+
+            <div><img src="media/server2.png" class="server" alt="server"></div>
+            <br>
+            <br>
+            <div><img src="media/server1.png" class="server" alt="server"></div>
         </div>
     </body>
 </html>
